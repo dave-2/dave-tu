@@ -1,5 +1,8 @@
 <!doctype html>
+<html lang="en">
 <meta charset="utf-8">
+<meta name="description" content="Dave Tu.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dave Tu</title>
 <script type="text/javascript">
   var FUNCTION_COUNT = 3;
@@ -51,7 +54,6 @@
         coeffs2[func][coeff] = Math.random() * 2 - 1;
       }
     }
-    console.log([coeffs1, coeffs2]);
 
     x = 0;
     y = 0;
@@ -98,8 +100,8 @@
   }
 
   function scaleCanvas(canvas, context) {
-    canvas.width = canvas.clientWidth;
-    canvas.height = canvas.clientHeight;
+    canvas.width = canvas.clientWidth * devicePixelRatio;
+    canvas.height = canvas.clientHeight * devicePixelRatio;
   }
 </script>
 <style type="text/css">
@@ -116,6 +118,7 @@
     height: 100%;
   }
 </style>
-<body onload="init()">
+<body onload="setTimeout(init)">
   <canvas id="canvas" onclick="reset()"></canvas>
 </body>
+</html>
