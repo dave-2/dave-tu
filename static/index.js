@@ -12,6 +12,8 @@ let interp, x, y;
 let canvas, context, pixels, pixelsSize;
 let hWidth, hHeight, scale, intensity;
 
+addEventListener('load', init);
+
 function init() {
   canvas = document.getElementById('canvas');
   context = canvas.getContext('2d');
@@ -28,6 +30,8 @@ function init() {
   hHeight = Math.floor(canvas.height / 2);
 
   reset();
+
+  document.getElementById('canvas').addEventListener('click', reset);
 }
 
 function reset() {
@@ -95,8 +99,3 @@ function scaleCanvas(canvas, context) {
   canvas.width = canvas.clientWidth * devicePixelRatio;
   canvas.height = canvas.clientHeight * devicePixelRatio;
 }
-
-document.addEventListener('DOMContentLoaded', function () {
-  setTimeout(init);
-  document.getElementById('canvas').addEventListener('click', reset);
-});
